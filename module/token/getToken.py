@@ -7,7 +7,7 @@ from module.token.getLoginAccessToken import getLoginAccessToken
 from module.token.getWebServiceToken import getWebServiceToken
 
 
-@retry(tries=3)
+@retry()
 def getToken() -> str:
 
     accessToken = getAccessToken()
