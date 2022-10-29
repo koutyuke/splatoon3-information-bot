@@ -13,7 +13,7 @@ client = discord.Client(intents=intents)
 tree = discord.app_commands.CommandTree(client)
 load_dotenv()
 
-testGuild = discord.Object(854266006738305050)
+testGuild = discord.Object(788349336287182879)
 
 
 @client.event

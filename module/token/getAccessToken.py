@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 
-def getAccessToken():
+def getAccessToken() -> str:
     load_dotenv()
 
     url = "https://accounts.nintendo.com/connect/1.0.0/api/token"
@@ -23,5 +23,8 @@ def getAccessToken():
     }
 
     data = requests.post(url=url, headers=headers, json=params)
+
+    if data.status_code == 400:
+        return data.json()["error_description"]
 
     return data.json()["access_token"]

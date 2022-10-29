@@ -11,9 +11,11 @@ from module.token.getWebServiceToken import getWebServiceToken
 def getToken() -> str:
 
     accessToken = getAccessToken()
-    iminkToken1 = getIminkToken(token=accessToken, hashMethod=1)
 
-    # print(accessToken)
+    if accessToken == "The provided grant is invalid":
+        return "InvalidAccessToken      "
+
+    iminkToken1 = getIminkToken(token=accessToken, hashMethod=1)
 
     loginAccessToken = getLoginAccessToken(
         f=iminkToken1["f"],
@@ -21,8 +23,6 @@ def getToken() -> str:
         timestamp=iminkToken1["timestamp"],
         requestId=iminkToken1["request_id"],
     )
-
-    # print(loginAccessToken)
 
     if loginAccessToken["status"] == 9427:
         return "Low-X-ProductVersion"
@@ -42,7 +42,7 @@ def getToken() -> str:
     )
 
     if webServiceToken["status"] == 9427:
-        return "Low-X-ProductVersion"
+        return "LowProductVersion"
 
     bulletToken = getBulletToken(xGamewebtoken=webServiceToken["result"]["accessToken"])
 

@@ -2,3 +2,4 @@
 module/image/buki/*
 module/image/stage/*
 .vscode
+*__pycache__
