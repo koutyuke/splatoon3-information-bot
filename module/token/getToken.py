@@ -13,7 +13,7 @@ def getToken() -> str:
     accessToken = getAccessToken()
 
     if accessToken == "The provided grant is invalid":
-        return "InvalidAccessToken      "
+        return "Invalid-AccessToken"
 
     iminkToken1 = getIminkToken(token=accessToken, hashMethod=1)
 
@@ -42,7 +42,7 @@ def getToken() -> str:
     )
 
     if webServiceToken["status"] == 9427:
-        return "LowProductVersion"
+        return "Low-Product-Version"
 
     bulletToken = getBulletToken(xGamewebtoken=webServiceToken["result"]["accessToken"])
 

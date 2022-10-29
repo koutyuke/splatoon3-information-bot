@@ -4,7 +4,7 @@ from random import choice
 
 def createBukiMessage(bukiList: list[str]):
     choiceBuki = choice(bukiList)
-    print(choiceBuki)
+    # print(choiceBuki)
 
     title = "random BUKI"
     color = discord.Color.from_rgb(255, 238, 50)
