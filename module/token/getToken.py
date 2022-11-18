@@ -5,12 +5,17 @@ from module.token.getBulletToken import getBulletToken
 from module.token.getIminkToken import getIminkToken
 from module.token.getLoginAccessToken import getLoginAccessToken
 from module.token.getWebServiceToken import getWebServiceToken
+from module.token.productVersion import ProductVarsion
 
 
 @retry()
 def getToken() -> str:
 
     accessToken = getAccessToken()
+    product = ProductVarsion()
+
+    if not product:
+        return "No-Product-Varsion"
 
     if accessToken == "The provided grant is invalid":
         return "Invalid-AccessToken"
@@ -22,10 +27,11 @@ def getToken() -> str:
         naIdToken=accessToken,
         timestamp=iminkToken1["timestamp"],
         requestId=iminkToken1["request_id"],
+        product=product,
     )
 
     if loginAccessToken["status"] == 9427:
-        return "Low-X-ProductVersion"
+        return "Low-Product-Version"
 
     iminkToken2 = getIminkToken(
         token=loginAccessToken["result"]["webApiServerCredential"]["accessToken"],
@@ -39,6 +45,7 @@ def getToken() -> str:
         registrationToken=loginAccessToken["result"]["webApiServerCredential"][
             "accessToken"
         ],
+        product=product,
     )
 
     if webServiceToken["status"] == 9427:

@@ -4,7 +4,9 @@ from dotenv import load_dotenv
 from pprint import pprint
 
 
-def getWebServiceToken(f: str, registrationToken: str, timestamp: int, requestId: str):
+def getWebServiceToken(
+    f: str, registrationToken: str, timestamp: int, requestId: str, product: str
+):
     load_dotenv()
     url = "https://api-lp1.znc.srv.nintendo.net/v2/Game/GetWebServiceToken"
 
@@ -14,7 +16,7 @@ def getWebServiceToken(f: str, registrationToken: str, timestamp: int, requestId
         "Accept-Encoding": "gzip, deflate, br",
         "Accept-Language": "ja-JP",
         "Content-Type": "application/json",
-        "X-ProductVersion": "2.2.0",
+        "X-ProductVersion": product,
         "X-Platform": "iOS",
         "Authorization": f"Bearer {registrationToken}",
     }

@@ -3,7 +3,9 @@ import os
 from dotenv import load_dotenv
 
 
-def getLoginAccessToken(f: str, naIdToken: str, timestamp: int, requestId: str):
+def getLoginAccessToken(
+    f: str, naIdToken: str, timestamp: int, requestId: str, product: str
+):
     load_dotenv()
 
     url = "https://api-lp1.znc.srv.nintendo.net/v3/Account/Login"
@@ -13,7 +15,7 @@ def getLoginAccessToken(f: str, naIdToken: str, timestamp: int, requestId: str):
         "Connection": "keep-alive",
         "Accept-Encoding": "gzip, deflate, br",
         "Content-Type": "application/json",
-        "X-ProductVersion": "2.2.0",
+        "X-ProductVersion": product,
         "Accept-Language": "ja-JP",
         "X-Platform": "iOS",
     }
