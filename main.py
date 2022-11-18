@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from pprint import pprint
 
 from module.image.getBukiImage import getBukiImage
+from module.image.getStageImage import getStageImage
 from module.token.getToken import getToken
 from module.message.createBukiMessage import createBukiMessage
 from module.message.createErrorMesage import createErrorMessage
@@ -19,16 +20,17 @@ testGuild = discord.Object(788349336287182879)
 
 @client.event
 async def on_ready():
-    global token, bukiList, status
+    global token, bukiList, status, stageList
 
     token = getToken()
+    print(token)
     if token == "Invalid-AccessToken" or token == "Low-Product-Version":
         status = token
     else:
         status = "ok"
         bukiList = getBukiImage(token=token)
+        stageList = getStageImage(token=token)
 
-    print(token)
     tree.copy_global_to(guild=testGuild)
 
     await tree.sync(guild=testGuild)
