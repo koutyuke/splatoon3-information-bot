@@ -24,5 +24,6 @@ def getInfo(token: str, sha256Hash: str):
     }
 
     data = requests.post(url=url, headers=headers, json=params)
+    # print(data.json())
 
     return data.json()
