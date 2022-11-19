@@ -9,6 +9,7 @@ from module.image.getStageImage import getStageImage
 from module.token.getToken import getToken
 from module.message.createBukiMessage import createBukiMessage
 from module.message.createErrorMesage import createErrorMessage
+from module.message.createStageMessage import createStageMessage
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -52,6 +53,16 @@ async def hello(
 async def buki(ctx: discord.Interaction):
     if status == "ok":
         embed = createBukiMessage(bukiList=bukiList)
+        await ctx.response.send_message(embed=embed[0], file=embed[1])
+    else:
+        embed = createErrorMessage(message=status)
+        await ctx.response.send_message(embed=embed)
+
+
+@tree.command(name="stage", description="Random 'STAGE' selection")
+async def stage(ctx: discord.Interaction):
+    if status == "ok":
+        embed = createStageMessage(stageList=stageList)
         await ctx.response.send_message(embed=embed[0], file=embed[1])
     else:
         embed = createErrorMessage(message=status)
