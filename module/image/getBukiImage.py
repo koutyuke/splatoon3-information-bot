@@ -10,9 +10,12 @@ def getBukiImage(token: str) -> list[str]:
     files = glob(f"{dirpath}/buki/*") + glob(f"{dirpath}/buki/.*")
     nowBukiImageList = [splitext(basename(image))[0] for image in files]
 
-    postResponse = getInfo(token=token, sha256Hash=sha256Hash)["data"]["weaponRecords"][
-        "nodes"
-    ]
+    postResponse = getInfo(token=token, sha256Hash=sha256Hash)
+
+    if postResponse[0] in range(200, 300):
+        postResponse = postResponse[1]["data"]["weaponRecords"]["nodes"]
+    else:
+        return "error"
 
     for bukiData in postResponse:
         if not bukiData["name"] in nowBukiImageList:

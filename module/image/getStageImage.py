@@ -11,9 +11,12 @@ def getStageImage(token: str) -> list[str]:
     files = glob(f"{dirpath}/stage/*")
     nowStageImageList = [splitext(basename(image))[0] for image in files]
 
-    postResponse = getInfo(token=token, sha256Hash=sha256Hash)["data"]["stageRecords"][
-        "nodes"
-    ]
+    postResponse = getInfo(token=token, sha256Hash=sha256Hash)
+
+    if postResponse[0] in range(200, 300):
+        postResponse = postResponse[1]["data"]["stageRecords"]["nodes"]
+    else:
+        return "error"
 
     for stageData in postResponse:
         if not stageData["name"] in nowStageImageList:

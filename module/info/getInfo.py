@@ -25,4 +25,4 @@ def getInfo(token: str, sha256Hash: str):
 
     data = requests.post(url=url, headers=headers, json=params)
 
-    return data.json()
+    return data.status_code, data.json()
