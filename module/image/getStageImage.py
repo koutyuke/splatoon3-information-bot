@@ -25,9 +25,3 @@ def getStageImage(token: str) -> list[str]:
     nowStageImageList = [splitext(basename(image))[0] for image in files]
 
     return nowStageImageList
-
-
-# if __name__ == "__main__":
-#     getStageImage(
-#         token="vKhcSJMsKhnwyUFbgMpag2et3VW03U1Ht7KEoaV-MsYU-CDHOI-zY_jS2T4-e-Y2y85lqKG7SHxVOaNS4eKgXPK7Bc2ytYw5ItMp8ibpEJSuOb9zMGyRCbgSZ7Y="
-#     )
