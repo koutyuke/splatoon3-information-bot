@@ -1,5 +1,5 @@
-from getInfo import getInfo
-from TimeData import createTimeData
+from module.info.getInfo import getInfo
+from module.info.TimeData import createTimeData
 
 
 def getSchedule(token: str) -> object:
