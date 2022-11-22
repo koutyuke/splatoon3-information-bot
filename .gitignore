@@ -1,5 +1,6 @@
 .env
 module/image/buki/*
 module/image/stage/*
+module/image/schedule/**/*.jpg
 .vscode
 *__pycache__
