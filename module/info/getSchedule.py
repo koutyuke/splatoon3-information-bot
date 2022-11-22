@@ -33,12 +33,12 @@ def getSchedule(token: str) -> object:
 
         challengeData = (
             bankaraData["bankaraMatchSettings"][0]
-            if bankaraData["bankaraMatchSettings"][0] == "CHALLENGE"
+            if bankaraData["bankaraMatchSettings"][0]["mode"] == "CHALLENGE"
             else bankaraData["bankaraMatchSettings"][1]
         )
         openData = (
             bankaraData["bankaraMatchSettings"][0]
-            if bankaraData["bankaraMatchSettings"][0] == "OPEN"
+            if bankaraData["bankaraMatchSettings"][0]["mode"] == "OPEN"
             else bankaraData["bankaraMatchSettings"][1]
         )
 
@@ -174,7 +174,7 @@ def getSchedule(token: str) -> object:
 
     return {
         "regular": regularDataArr,
-        "charenge": challengeDataArr,
+        "challenge": challengeDataArr,
         "open": openDataArr,
         "x": XDataArr,
         "league": leagueDataArr,
