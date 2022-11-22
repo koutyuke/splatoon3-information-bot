@@ -2,14 +2,17 @@ import requests
 from os.path import dirname, abspath, basename, splitext, split
 from module.info.getInfo import getInfo
 from glob import glob
-from pprint import pprint
 
 
 def getStageImage(token: str) -> list[str]:
     sha256Hash = "56c46bdbdfa4519eaf7845ce9f3cd67a"
     dirpath = dirname(abspath(__file__))
     files = glob(f"{dirpath}/stage/*")
-    nowStageImageList = [splitext(basename(image))[0] for image in files]
+    nowStageImageList = [
+        splitext(basename(image))[0]
+        for image in files
+        if splitext(basename(image))[0] != ".gitkeep"
+    ]
 
     postResponse = getInfo(token=token, sha256Hash=sha256Hash)
 

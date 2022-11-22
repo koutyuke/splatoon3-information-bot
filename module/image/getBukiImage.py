@@ -8,7 +8,11 @@ def getBukiImage(token: str) -> list[str]:
     sha256Hash = "23c9b2b4ad878c2d91a68859be928dea"
     dirpath = dirname(abspath(__file__))
     files = glob(f"{dirpath}/buki/*") + glob(f"{dirpath}/buki/.*")
-    nowBukiImageList = [splitext(basename(image))[0] for image in files]
+    nowBukiImageList = [
+        splitext(basename(image))[0]
+        for image in files
+        if splitext(basename(image))[0] != ".gitkeep"
+    ]
 
     postResponse = getInfo(token=token, sha256Hash=sha256Hash)
 
