@@ -1,7 +1,8 @@
 import requests
 from os.path import dirname, abspath, basename, splitext, split
-from module.info.getInfo import getInfo
 from glob import glob
+
+from module.info.getInfo import getInfo
 
 
 def getStageImage(token: str) -> list[str]:

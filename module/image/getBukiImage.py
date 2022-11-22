@@ -1,6 +1,7 @@
 import requests
 from os.path import dirname, abspath, basename, splitext
 from glob import glob
+
 from module.info.getInfo import getInfo
 
 

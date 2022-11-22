@@ -1,0 +1,8 @@
+discord.py
+dotenv
+requests
+retry
+BeautifulSoup
+opencv-python
+numpy
+PIL
