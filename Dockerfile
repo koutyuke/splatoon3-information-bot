@@ -13,7 +13,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY module /warkspaces/splatoon3/module/
-COPY .env /warkspaces/splatoon3/
+# COPY .env /warkspaces/splatoon3/
 COPY main.py /warkspaces/splatoon3/
 
 CMD [ "python", "main.py" ]
