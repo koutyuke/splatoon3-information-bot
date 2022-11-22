@@ -2,7 +2,7 @@ discord.py
 dotenv
 requests
 retry
-BeautifulSoup
+beautifulsoup4
 opencv-python
 numpy
-PIL
+Pillow
