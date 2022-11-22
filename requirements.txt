@@ -4,5 +4,6 @@ requests
 retry
 beautifulsoup4
 opencv-python
+opencv-contrib-python
 numpy
 Pillow
