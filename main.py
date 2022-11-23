@@ -23,7 +23,7 @@ client = discord.Client(intents=intents)
 tree = discord.app_commands.CommandTree(client)
 load_dotenv()
 
-testGuild = discord.Object(os.environ["TEST_GUILD_ID"])
+# testGuild = discord.Object(os.environ["TEST_GUILD_ID"])
 
 
 def reload():
@@ -91,8 +91,8 @@ async def on_ready():
         scheduleData = getSchedule(token=token)
         createScheduleImage(scheduleData)
 
-    tree.copy_global_to(guild=testGuild)
-    await tree.sync(guild=testGuild)
+    # tree.copy_global_to(guild=testGuild)
+    await tree.sync()
 
     print("login!!")
 
