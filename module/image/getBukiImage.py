@@ -24,7 +24,8 @@ def getBukiImage(token: str) -> list[str]:
 
     for bukiData in postResponse:
         if not bukiData["name"] in nowBukiImageList:
-            bukiName = bukiData["name"]
+            bukiName: str = bukiData["name"]
+            bukiName = bukiName.replace("/", "##")
             imagedata = requests.get(bukiData["image"]["url"]).content
             with open(f"{dirpath}/buki/{bukiName}.jpg", "wb") as f:
                 f.write(imagedata)

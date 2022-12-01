@@ -1,4 +1,6 @@
 import requests
+import os
+from dotenv import load_dotenv
 
 
 def getInfo(token: str, sha256Hash: str):
@@ -9,7 +11,7 @@ def getInfo(token: str, sha256Hash: str):
         "Host": "api.lp1.av5ja.srv.nintendo.net",
         "Accept-Encoding": "gzip, deflate, br",
         "Connection": "keep-alive",
-        "x-web-view-ver": "1.0.0",
+        "x-web-view-ver": os.environ["WEB_VIEW_VER"],
         "Authorization": f"Bearer {token}",
     }
 
