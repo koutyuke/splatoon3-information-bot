@@ -4,11 +4,11 @@ from random import choice
 
 def createBukiMessage(bukiList: list[str]):
     choiceBuki = choice(bukiList)
-    # print(choiceBuki)
+    choiceBukiRename = choiceBuki.replace("##", "/")
 
     title = "random BUKI"
     color = discord.Color.from_rgb(255, 238, 50)
-    description = f"Choice BUKI is...\n\n「{choiceBuki}」"
+    description = f"Choice BUKI is...\n\n「{choiceBukiRename}」"
     fileName = f"{choiceBuki}.jpg"
     file = discord.File(
         fp=f"module/image/buki/{fileName}", filename="image.jpg", spoiler=False
