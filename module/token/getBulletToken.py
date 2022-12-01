@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 
-def getBulletToken(xGamewebtoken: str):
+def getBulletToken(xGameWebToken: str):
     load_dotenv()
     url = "https://api.lp1.av5ja.srv.nintendo.net/api/bullet_tokens"
 
@@ -13,12 +13,12 @@ def getBulletToken(xGamewebtoken: str):
         "Accept-Encoding": "gzip, deflate, br",
         "Accept-Language": "ja-JP",
         "X-Web-View-Ver": os.environ["WEB_VIEW_VER"],
-        "X-GameWebToken": xGamewebtoken,
+        "X-GameWebToken": xGameWebToken,
     }
 
     data = requests.post(url=url, headers=headers)
 
-    print(xGamewebtoken)
+    print(xGameWebToken)
     print(data)
 
     return data.json()

@@ -51,7 +51,7 @@ def getToken() -> str:
     if webServiceToken["status"] == 9427:
         return "Low-Product-Version"
 
-    bulletToken = getBulletToken(xGamewebtoken=webServiceToken["result"]["accessToken"])
+    bulletToken = getBulletToken(xGameWebToken=webServiceToken["result"]["accessToken"])
 
     # print(bulletToken)
 
