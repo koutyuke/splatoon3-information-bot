@@ -47,29 +47,21 @@ JST = timezone(timedelta(hours=+9), "JST")
 @tasks.loop(seconds=60)
 async def Timer():
     now = datetime.now(JST).strftime("%H:%M")
-    if now == "01:01":
-        reload()
-    if now == "03:01":
-        reload()
-    if now == "05:01":
-        reload()
-    if now == "07:01":
-        reload()
-    if now == "09:01":
-        reload()
-    if now == "11:01":
-        reload()
-    if now == "13:01":
-        reload()
-    if now == "15:01":
-        reload()
-    if now == "17:01":
-        reload()
-    if now == "19:01":
-        reload()
-    if now == "21:01":
-        reload()
-    if now == "23:01":
+    timeArray = [
+        "01:01",
+        "03:01",
+        "05:01",
+        "07:01",
+        "09:01",
+        "11:01",
+        "13:01",
+        "15:01",
+        "17:01",
+        "19:01",
+        "21:01",
+        "23:01",
+    ]
+    if now in timeArray:
         reload()
 
 
