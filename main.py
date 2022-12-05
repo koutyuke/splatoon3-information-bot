@@ -194,7 +194,7 @@ async def x(ctx: discord.Interaction):
                 battleType="Xマッチ",
                 battleTypeEn="x",
                 data=data,
-                colorNum=(255, 165, 0),
+                colorNum=(0, 250, 154),
             )
             for data in scheduleData["x"]
         ]
