@@ -1,18 +1,17 @@
 import requests
-import os
-from dotenv import load_dotenv
+from module.token.webViewVersion import WebViewViersion
 
 
 def getBulletToken(xGameWebToken: str):
-    load_dotenv()
     url = "https://api.lp1.av5ja.srv.nintendo.net/api/bullet_tokens"
+    version = WebViewViersion()
 
     headers = {
         "Host": "api.lp1.av5ja.srv.nintendo.net",
         "Connection": "keep-alive",
         "Accept-Encoding": "gzip, deflate, br",
         "Accept-Language": "ja-JP",
-        "X-Web-View-Ver": os.environ["WEB_VIEW_VER"],
+        "X-Web-View-Ver": version,
         "X-GameWebToken": xGameWebToken,
     }
 

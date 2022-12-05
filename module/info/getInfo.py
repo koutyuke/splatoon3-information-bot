@@ -1,17 +1,16 @@
 import requests
-import os
-from dotenv import load_dotenv
+from module.token.webViewVersion import WebViewViersion
 
 
 def getInfo(token: str, sha256Hash: str):
-
     url = "https://api.lp1.av5ja.srv.nintendo.net/api/graphql"
+    version = WebViewViersion()
 
     headers = {
         "Host": "api.lp1.av5ja.srv.nintendo.net",
         "Accept-Encoding": "gzip, deflate, br",
         "Connection": "keep-alive",
-        "x-web-view-ver": os.environ["WEB_VIEW_VER"],
+        "x-web-view-ver": version,
         "Authorization": f"Bearer {token}",
     }
 
