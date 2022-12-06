@@ -8,6 +8,7 @@ def getIminkToken(token: str, hashMethod: int):
         "Host": "api.imink.app",
         "Connection": "keep-alive",
         "Accept-Encoding": "gzip, deflate, br",
+        "User-Agent": "discord-information-bot",
     }
     params = {"token": token, "hash_method": hashMethod}
 

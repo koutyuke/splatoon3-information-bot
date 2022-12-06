@@ -8,7 +8,7 @@ from module.token.getWebServiceToken import getWebServiceToken
 from module.token.productVersion import ProductVarsion
 
 
-@retry(tries=3)
+@retry(tries=1)
 def getToken() -> str:
 
     accessToken = getAccessToken()
